@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {
   Card,
   CardHeader,
@@ -9,147 +10,131 @@ import {
   Form,
   FormGroup,
   FormInput,
+  FormSelect,
+  FormTextarea,
   Button
 } from "shards-react";
 
-import server from "../../Server/Server"
-import TimeoutAlert from "../../components/common/TimeoutAlert"
-
-class UserAccountDetails extends React.Component {
-
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      details:
-      {
-        id: "",
-        name: "",
-        password: "",
-        email: "",
-        phoneNum: ""
-      }
-    };
-
-    this.updateName = this.updateName.bind(this);
-    this.updatePassword = this.updatePassword.bind(this);
-    this.updateEmail = this.updateEmail.bind(this);
-    this.updatePhoneNumber = this.updatePhoneNumber.bind(this);
-    this.update = this.update.bind(this);
-
-
-  }
-
-  update(){
-    let self = this;
-    this.setState({disabled: true});
-    //Theoretically we might want to check whether anything was changed at all?
-    server.updateTeacher(function(response)
-    {
-      self.setState({error: false, success: true, disabled: false});
-      window.scrollTo(0, 0);
-    }, function(error){
-      self.setState({error: "An error has occured", success: false, disabled: false});
-      window.scrollTo(0, 0);
-    }, this.state.details);
-  }
-
-  updateName(evnt){
-    let dets = this.state.details;
-    dets.name = evnt.target.value;
-    this.setState({details: dets})
-  }
-
-  updatePassword(evnt){
-    this.setState({password: evnt.target.value})
-  }
-
-  updateEmail(evnt){
-    let dets = this.state.details;
-    dets.email = evnt.target.value;
-    this.setState({details: dets})
-  }
-
-  updatePhoneNumber(evnt){
-    let dets = this.state.details;
-    dets.phoneNum = evnt.target.value;
-    this.setState({details: dets})
-  }
-
-  componentDidMount() {
-    var self = this;
-    server.getTeacherProfile(function(response){
-      self.setState({details: response.data});
-    }, function(error){
-    });
-
-  }
-
-
-  render()
-  {
-  return(
-    <div>
-    {this.state.error &&
-      <TimeoutAlert className="mb-0" theme="danger" msg={this.state.error} time={10000}/>
-    }
-    {this.state.success &&
-      <TimeoutAlert className="mb-0" theme="success" msg={"Success! Your details have been updated!"} time={10000}/>
-    }
-
-    <Card small className="mb-4">
-      <CardHeader className="border-bottom">
-        <h6 className="m-0">Account Details</h6>
-      </CardHeader>
-      <ListGroup flush>
-        <ListGroupItem className="p-3">
-          <Row>
-            <Col>
-              <Form>
-                <FormGroup>
-                  <label htmlFor="feUsername">Username</label>
+const UserAccountDetails = ({ title }) => (
+  <Card small className="mb-4">
+    <CardHeader className="border-bottom">
+      <h6 className="m-0">{title}</h6>
+    </CardHeader>
+    <ListGroup flush>
+      <ListGroupItem className="p-3">
+        <Row>
+          <Col>
+            <Form>
+              <Row form>
+                {/* First Name */}
+                <Col md="6" className="form-group">
+                  <label htmlFor="feFirstName">First Name</label>
                   <FormInput
-                    type="username  "
-                    id="feUsername"
-                    placeholder="Username"
-                    value = {this.state.details.name}
-                    onChange={()=>{}}
-                    disabled={true}
+                    id="feFirstName"
+                    placeholder="First Name"
+                    value="Sierra"
+                    onChange={() => {}}
                   />
-                </FormGroup>
-
-                <FormGroup>
+                </Col>
+                {/* Last Name */}
+                <Col md="6" className="form-group">
+                  <label htmlFor="feLastName">Last Name</label>
+                  <FormInput
+                    id="feLastName"
+                    placeholder="Last Name"
+                    value="Brooks"
+                    onChange={() => {}}
+                  />
+                </Col>
+              </Row>
+              <Row form>
+                {/* Email */}
+                <Col md="6" className="form-group">
                   <label htmlFor="feEmail">Email</label>
                   <FormInput
                     type="email"
                     id="feEmail"
-                    placeholder="Email"
-                    value = {this.state.details.email}
-                    onChange={this.updateEmail}
-                    disabled={true}
+                    placeholder="Email Address"
+                    value="sierra@example.com"
+                    onChange={() => {}}
+                    autoComplete="email"
                   />
-                </FormGroup>
-                <FormGroup>
-                  <label htmlFor="fePhoneNumber">Phone Number</label>
+                </Col>
+                {/* Password */}
+                <Col md="6" className="form-group">
+                  <label htmlFor="fePassword">Password</label>
                   <FormInput
-                    type="tel"
-                    id="fePhoneNumber"
-                    placeholder="Phone Number"
-                    value = {this.state.details.phoneNum}
-                    onChange={this.updatePhoneNumber}
+                    type="password"
+                    id="fePassword"
+                    placeholder="Password"
+                    value="EX@MPL#P@$$w0RD"
+                    onChange={() => {}}
+                    autoComplete="current-password"
                   />
-                </FormGroup>
-                <Button outline disabled={this.state.disabled} onClick={this.update} theme="accent">Update Account</Button>
-              </Form>
-            </Col>
-          </Row>
-        </ListGroupItem>
-      </ListGroup>
-    </Card>
-    </div>
-  );
-}
-}
+                </Col>
+              </Row>
+              <FormGroup>
+                <label htmlFor="feAddress">Address</label>
+                <FormInput
+                  id="feAddress"
+                  placeholder="Address"
+                  value="1234 Main St."
+                  onChange={() => {}}
+                />
+              </FormGroup>
+              <Row form>
+                {/* City */}
+                <Col md="6" className="form-group">
+                  <label htmlFor="feCity">City</label>
+                  <FormInput
+                    id="feCity"
+                    placeholder="City"
+                    onChange={() => {}}
+                  />
+                </Col>
+                {/* State */}
+                <Col md="4" className="form-group">
+                  <label htmlFor="feInputState">State</label>
+                  <FormSelect id="feInputState">
+                    <option>Choose...</option>
+                    <option>...</option>
+                  </FormSelect>
+                </Col>
+                {/* Zip Code */}
+                <Col md="2" className="form-group">
+                  <label htmlFor="feZipCode">Zip</label>
+                  <FormInput
+                    id="feZipCode"
+                    placeholder="Zip"
+                    onChange={() => {}}
+                  />
+                </Col>
+              </Row>
+              <Row form>
+                {/* Description */}
+                <Col md="12" className="form-group">
+                  <label htmlFor="feDescription">Description</label>
+                  <FormTextarea id="feDescription" rows="5" />
+                </Col>
+              </Row>
+              <Button theme="accent">Update Account</Button>
+            </Form>
+          </Col>
+        </Row>
+      </ListGroupItem>
+    </ListGroup>
+  </Card>
+);
 
+UserAccountDetails.propTypes = {
+  /**
+   * The component's title.
+   */
+  title: PropTypes.string
+};
+
+UserAccountDetails.defaultProps = {
+  title: "Account Details"
+};
 
 export default UserAccountDetails;

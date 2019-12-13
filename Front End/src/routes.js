@@ -2,90 +2,60 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 
 // Layout Types
-import { DefaultLayout, ProtectedLayout } from "./layouts";
+import { DefaultLayout } from "./layouts";
 
 // Route Views
-import Overview from "./views/Overview";
+import AnswerGenerator from "./views/AnswerGenerator";
+import Debate from "./views/Debate";
+import Promises from "./views/Promises";
+import Bingo from "./views/Bingo";
 import UserProfileLite from "./views/UserProfileLite";
-import AddNewCourse from "./views/AddNewCourse";
+import AddNewPost from "./views/AddNewPost";
 import Errors from "./views/Errors";
 import ComponentsOverview from "./views/ComponentsOverview";
 import Tables from "./views/Tables";
-import MyCourses from "./views/MyCourses";
-import Callback from "./views/Callback";
-import CourseDetails from "./views/CourseDetails";
-import CourseStore from "./views/CourseStore";
-import Lesson from "./views/Lesson";
-import DemoLesson from "./views/DemoLesson";
-
-
+import BlogPosts from "./views/BlogPosts";
 
 export default [
   {
     path: "/",
     exact: true,
     layout: DefaultLayout,
-    component: () => <Redirect to="/overview" />
+    component: () => <Redirect to="/main-page" />
   },
   {
-    path: "/callback",
-    exact: true,
+    path: "/main-page",
     layout: DefaultLayout,
-    component: Callback
+    component: AnswerGenerator
   },
   {
-    path: "/overview",
+    path: "/debate",
     layout: DefaultLayout,
-    component: Overview
+    component: Debate
   },
   {
-    path: "/course-details/:id",
-    layout: ProtectedLayout,
-    component: CourseDetails
+    path: "/promises",
+    layout: DefaultLayout,
+    component: Promises
   },
   {
-    path: "/manage-store/:id",
-    layout: ProtectedLayout,
-    component: CourseStore
-  },
-  {
-    path: "/user-profile-lite",
-    layout: ProtectedLayout,
-    component: UserProfileLite
-  },
-  {
-    path: "/add-new-course",
-    layout: ProtectedLayout,
-    component: AddNewCourse
-  },
-  {
-    path: "/errors",
-    layout: ProtectedLayout,
-    component: Errors
+    path: "/elections-bingo",
+    layout: DefaultLayout,
+    component: Bingo
   },
   {
     path: "/components-overview",
-    layout: ProtectedLayout,
+    layout: DefaultLayout,
     component: ComponentsOverview
   },
   {
-    path: "/lesson/:id",
-    layout: ProtectedLayout,
-    component: Lesson
-  },
-  {
     path: "/tables",
-    layout: ProtectedLayout,
+    layout: DefaultLayout,
     component: Tables
   },
   {
-    path: "/my-courses",
-    layout: ProtectedLayout,
-    component: MyCourses
-  },
-  {
-    path: "/demo-lesson",
-    layout: ProtectedLayout,
-    component: DemoLesson
+    path: "/blog-posts",
+    layout: DefaultLayout,
+    component: BlogPosts
   }
 ];

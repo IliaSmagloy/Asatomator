@@ -1,6 +1,6 @@
 {
-  "short_name": "EMon Student",
-  "name": "Emon Student Application",
+  "short_name": "Shards Dashboard Lite React",
+  "name": "Shards Dashboard Lite React",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,9 +8,8 @@
       "type": "image/x-icon"
     }
   ],
-  "start_url": "/overview",
-  "scope": "/",
+  "start_url": ".",
   "display": "standalone",
-  "theme_color": "#007bff",
+  "theme_color": "#000000",
   "background_color": "#ffffff"
 }

@@ -39,20 +39,12 @@ MainFooter.propTypes = {
 
 MainFooter.defaultProps = {
   contained: false,
-  copyright: "All Rights Reserved - Arkadiy@Iluha © 2019",
+  copyright: "All Rights Reserved. Bedimos@Asat 2019. Special Thanks to Yarden Stossel",
   menuItems: [
     {
-      title: "Home",
-      to: "/"
+      title: "שאל את המתמודדים שאלה",
+      to: "main-page"
     },
-    {
-      title: "My Courses",
-      to: "/my-courses"
-    },
-    {
-      title: "My Profile",
-      to: "/user-profile-lite"
-    }
   ]
 };
 

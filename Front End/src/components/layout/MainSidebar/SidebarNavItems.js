@@ -16,11 +16,11 @@ class SidebarNavItems extends React.Component {
   }
 
   componentWillMount() {
-    Store.addChangeListener(this.onChange);
+    window.addEventListener('resize', this.onChange);
   }
 
   componentWillUnmount() {
-    Store.removeChangeListener(this.onChange);
+    window.removeEventListener('resize', this.onChange);
   }
 
   onChange() {

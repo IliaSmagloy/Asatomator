@@ -1,21 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Container, Row, Col } from "shards-react";
-import auth from "../Auth/Auth"
 
 import MainNavbar from "../components/layout/MainNavbar/MainNavbar";
 import MainSidebar from "../components/layout/MainSidebar/MainSidebar";
 import MainFooter from "../components/layout/MainFooter";
 
-
 const DefaultLayout = ({ children, noNavbar, noFooter }) => (
   <Container fluid>
-    {auth.isAuthenticated() && <Row>
-      <MainSidebar/>
+    <Row>
       <Col
         className="main-content p-0"
-        lg={{ size: 10, offset: 2 }}
-        md={{ size: 9, offset: 3 }}
+        lg={{ size: 10, offset: 0 }}
+        md={{ size: 10, offset: 0 }}
         sm="12"
         tag="main"
       >
@@ -23,20 +20,16 @@ const DefaultLayout = ({ children, noNavbar, noFooter }) => (
         {children}
         {!noFooter && <MainFooter />}
       </Col>
-    </Row>}
-    {!auth.isAuthenticated() && <Row>
       <Col
         className="main-content p-0"
-        lg={{ size: 12}}
-        md={{ size: 12}}
+        lg={{ size: 100, offset: 10 }}
+        md={{ size: 100, offset: 10 }}
         sm="12"
-        tag="main"
       >
-        {!noNavbar && <MainNavbar />}
-        {children}
-        {!noFooter && <MainFooter />}
+        <MainSidebar />
       </Col>
-    </Row>}
+
+    </Row>
   </Container>
 );
 
