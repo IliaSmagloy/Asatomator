@@ -50,10 +50,9 @@ class MainSidebar extends React.Component {
         tag="aside"
         className={classes}
         lg={{ size: 2 }}
-        md={{ size: 3 }}
+        md={{ size: 2 }}
       >
         <SidebarMainNavbar hideLogoText={this.props.hideLogoText} />
-        <SidebarSearch />
         <SidebarNavItems />
       </Col>
     );

@@ -45,7 +45,8 @@ const styles = theme => ({
     },
     title:
     {
-      textAlign: 'right',
+      fontSize: 40,
+      textAlign: 'center',
       alignSelf: 'stretch',
     },
     chooseSpeaker:

@@ -45,8 +45,12 @@ import Fade from '@material-ui/core/Fade';
 
 const styles = theme => ({
     card: {
-      maxWidth: 700,
+      maxWidth: "100%",
       margin: 'auto ',
+    },
+    cardContent:
+    {
+      maxWidth:"100%"
     },
 
     button:{
@@ -82,7 +86,8 @@ const styles = theme => ({
     title:
     {
       color: "LimeGreen",
-      textAlign: 'right',
+      textAlign: 'center',
+      fontSize: 30,
       alignSelf: 'stretch',
     },
     chooseSpeaker:
@@ -318,7 +323,7 @@ class Bingo extends React.Component{
             }}
             title={"בינגו בחירות! סמנו מה ששמתם לב אליו והתחרו עם חבריכם!"}
           />
-          <CardContent>
+          <CardContent className={classes.cardContent}>
             <Table>
               <TableBody>
                 {rows.map((row, idx) => (

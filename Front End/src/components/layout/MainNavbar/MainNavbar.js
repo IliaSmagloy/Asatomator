@@ -6,6 +6,7 @@ import { Col, Container, Navbar, NavbarBrand } from "shards-react";
 import NavbarSearch from "./NavbarSearch";
 import NavbarNav from "./NavbarNav/NavbarNav";
 import NavbarToggle from "./NavbarToggle";
+import Hidden from '@material-ui/core/Hidden';
 
 const MainNavbar = ({ layout, stickyTop }) => {
   const classes = classNames(
@@ -17,38 +18,19 @@ const MainNavbar = ({ layout, stickyTop }) => {
   return (
     <div className={classes}>
       <Container className="p-0">
-        <Navbar type="light" className="align-items-stretch flex-md-nowrap p-0">
-          <Col>
-            <NavbarBrand
-              className="w-100 mr-0"
-              href="#"
-              style={{ lineHeight: "25px" }}
-            >
-              <div className="d-table mr-auto" >
-                <img
-                id="main-logo"
-                className="d-inline-block align-left mr-1"
-                style={{ maxWidth: "50px" }}
-                src={require("../../../images/bhirotomator.png")}
-                alt="Shards Dashboard"
-                />
-                <img
-                id="main-logo"
-                className="d-inline-block align-left mr-1"
-                style={{ maxWidth: "50px" }}
-                src={require("../../../images/logo.png")}
-                alt="Shards Dashboard"
-                />
-              </div>
-            </NavbarBrand>
-          </Col>
-          <Col
-          lg={{ size: 2 }}
-          md={{ size: 3 }}
->
-            <NavbarToggle />
-          </Col>
-        </Navbar>
+        <Hidden smUp>
+          <Navbar type="light" className="align-items-stretch flex-md-nowrap p-0">
+            <Col
+            lg={{ size: 2 }}
+            md={{ size: 2, disabled: true }}
+            xs={{ size: 2 }}
+            xs={{ size: 2 }}
+  >
+              <NavbarToggle />
+            </Col>
+          </Navbar>
+        </Hidden>
+
       </Container>
     </div>
   );

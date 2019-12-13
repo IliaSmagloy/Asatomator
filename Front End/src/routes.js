@@ -8,6 +8,7 @@ import { DefaultLayout } from "./layouts";
 import AnswerGenerator from "./views/AnswerGenerator";
 import Debate from "./views/Debate";
 import Promises from "./views/Promises";
+import Frequent from "./views/Frequent";
 import Bingo from "./views/Bingo";
 import UserProfileLite from "./views/UserProfileLite";
 import AddNewPost from "./views/AddNewPost";
@@ -44,18 +45,8 @@ export default [
     component: Bingo
   },
   {
-    path: "/components-overview",
+    path: "/faq",
     layout: DefaultLayout,
-    component: ComponentsOverview
+    component: Frequent
   },
-  {
-    path: "/tables",
-    layout: DefaultLayout,
-    component: Tables
-  },
-  {
-    path: "/blog-posts",
-    layout: DefaultLayout,
-    component: BlogPosts
-  }
 ];
