@@ -156,39 +156,65 @@ const styles = theme => ({
 function createData(a, b, c, d, e) {
   return { a, b, c, d, e };
 }
+function shuffle(array) {
+  var tmp = array;
+  tmp.sort(() => Math.random() - 0.5);
 
-const rows = [
-  createData("מוסא אומר שהוא היה רכז רשויות",
-              "קוסטה מגייס הון אנושי",
-              "לינוי מבקשת לפרק את התשובה שלה למספר חלקים",
-              "מישהו מזכיר את השיח בפייסבוק לטובה",
-              "עידו חורג מזמנים לתשובה"
-            ),
-  createData("קוסטה ומוסא מוסיפים חניות בקמפוס",
-      "קוסטה ומוסא מתבלבלים באקדמיה ותארים מתקדמים",
-      "לינוי מזכירה שניהלה את המקמ",
-      "מישהו מזכיר את דני מגנר",
-      "נציג נראה עייף בצורה מוגזמת"
-  ),
-  createData("אף אחד לא מתייחס לכל מה שיש בישיבה ולא נוגע לבחירות נשיאות",
+  return tmp;
+}
+
+const sentences= [
+  "מוסא אומר שהוא היה רכז רשויות",
+  "קוסטה מגייס הון אנושי",
+  "לינוי מבקשת לפרק את התשובה שלה למספר חלקים",
+  "מישהו מזכיר את השיח בפייסבוק לטובה",
+  "עידו חורג מזמנים לתשובה",
+  "קוסטה ומוסא מוסיפים חניות בקמפוס",
+  "קוסטה ומוסא מתבלבלים באקדמיה ותארים מתקדמים",
+  "לינוי מזכירה שניהלה את המקמ",
+  "מישהו מזכיר את דני מגנר",
+  "נציג נראה עייף בצורה מוגזמת",
+  "אף אחד לא מתייחס לכל מה שיש בישיבה ולא נוגע לבחירות נשיאות",
   "עידו ולינוי מדברים על הצבא",
   "יש סתירה בין שני הזוגות",
   "דן נראה לחוץ",
-  "עידו ולינוי מדברים על הגנת הסטודנטים"
-  ),
-  createData("מישהו מזכיר את ועדת העומס",
+  "עידו ולינוי מדברים על הגנת הסטודנטים",
+  "מישהו מזכיר את ועדת העומס",
   "מישהו מזכיר את אמיר גרטי",
   "מישהו חושב שהוא מציל את משרד פרסום",
   "לינוי ועידו מתבלבלים בקמפוס או תרבות",
-  "קוסטה מזכיר חוזה"
-  ),
-  createData("מוסא מצטט שיחה של עובד אסט לדוגמה",
-    "הבחירות מסתיימות באיחור",
-    "מישהו מזכיר את השיח בפייסבוק לרעה",
-    "עידו מזכיר שהיה יו\"ר ועדת בחירות",
-    "מישהו מזכיר את עומר עמית"
-  )
-];
+  "קוסטה מזכיר חוזה",
+  "מוסא מצטט שיחה של עובד אסט לדוגמה",
+  "הבחירות מסתיימות באיחור",
+  "מישהו מזכיר את השיח בפייסבוק לרעה",
+  "עידו מזכיר שהיה יו\"ר ועדת בחירות",
+  "מישהו מזכיר את עומר עמית",
+  "מישהו שואל למי יש סוללה ניידת",
+  "שתיקה מביכה",
+  "אחד המועמדים עושה בדיחה ונכשל",
+  "מיקרופון צורם",
+  "הישיבה מתחילה באיחור",
+  "מישהו אומר שאם נמשיך ככה בחיים לא נסיים בזמן",
+  "מישהו מתעצבן על נציג של מדמ\"ח",
+  "מישהו מזכיר בדיון הסגור שזה דיון סגור ואין להפיץ אמירות ממנו",
+  "מישהו לידכם מפיץ אמירות מהדיון הסגור לאנשים לא מהדיון הסגור",
+  "לא מסיימים בזמן",
+  "מישהו שעובד באגודה מגלגל עיניים",
+  "מישהו שעובד באגודה לוחש בצחוק משהו לחבר",
+  "מישהו אומר מתממשק / מתעתד / מקצה לקצה",
+  "אחד המועמדים לא ברור בכלל כשהוא מדבר",
+  "אחרי 5 דקות נשאר רק בורקס אחד שנפל",
+  "אחד הנציגים מבקש הבהרה לגבי זכאות למדבקה",
+  "מישהו כועס שאין הצבעה ישירה בקמפוס",
+  "המיקרופון לא עובד",
+  "מישהו מבקש להגיב למישהו שדיבר לפני כמה דקות, אומר שהוא טועה ואף אחד לא זוכר מה המקורי אמר",
+  "יו\"ר ועד נעמד ומדבר כאילו הוא בא לחנך את שאר הנוכחים בחדר",
+  "מנהל משרד מזכיר שבסופו של יום מי שבאמת מושפע מהנשיאות זה מנהלי המשרדים",
+  "מישהו שכבר לא באגודה מבקש להביע את דעתו",
+  "אחד המתמודדים מתחיל לענות ובן זוגו קוטע אותו באמצע",
+  "מישהו מבקש לדבר למיקרופון",
+  "מישהו אומר משהו נישתי שמתייחס רק לפקולטת האם שלו ולא לאף פקולטה אחרת",
+]
 
 class Bingo extends React.Component{
 
@@ -207,6 +233,8 @@ class Bingo extends React.Component{
       win_diag:-1,
       win:false,
       modal_open:false,
+      rows:[],
+      rows_created: false,
     }
     this.checkWin = this.checkWin.bind(this)
     this.handleDeleteModalClose = this.handleDeleteModalClose.bind(this);
@@ -298,6 +326,50 @@ class Bingo extends React.Component{
 
   }
 
+  componentDidMount()
+  {
+    var shuff_sentences = shuffle(sentences);
+    console.log(shuff_sentences, sentences);
+    var new_rows = [
+      createData(
+        shuff_sentences[0],
+        shuff_sentences[1],
+        shuff_sentences[2],
+        shuff_sentences[3],
+        shuff_sentences[4],
+      ),
+      createData(
+        shuff_sentences[5],
+        shuff_sentences[6],
+        shuff_sentences[7],
+        shuff_sentences[8],
+        shuff_sentences[9],
+      ),
+      createData(
+        shuff_sentences[10],
+        shuff_sentences[11],
+        shuff_sentences[12],
+        shuff_sentences[13],
+        shuff_sentences[14],
+      ),
+      createData(
+        shuff_sentences[15],
+        shuff_sentences[16],
+        shuff_sentences[17],
+        shuff_sentences[18],
+        shuff_sentences[19],
+      ),
+      createData(
+        shuff_sentences[20],
+        shuff_sentences[21],
+        shuff_sentences[22],
+        shuff_sentences[23],
+        shuff_sentences[24],
+      ),
+    ];
+
+    this.setState({rows: new_rows, rows_created: true})
+  }
   render(){
     const classes = this.props.classes;
     return(
@@ -330,208 +402,217 @@ class Bingo extends React.Component{
             subheader="עבור חוויה אופטימלית רצוי לסובב את המסך"
           />
           <CardContent className={classes.cardContent}>
-          <div
-          style={{
-            maxWidth:'100%',
-          }}>
-            <Table>
-              <TableBody>
-                {rows.map((row, idx) => (
-                  <TableRow>
-                    <TableCell padding="checkbox"
-                    className={
+          { this.state.rows_created &&
+            <div
+            style={{
+              maxWidth:'100%',
+            }}>
+              <Table>
+                <TableBody>
+                  {this.state.rows.map((row, idx) => (
+                    <TableRow>
+                      <TableCell padding="checkbox"
+                      className={
 
-                      clsx([classes.tableCell],
+                        clsx([classes.tableCell],
+                            {
+                              [ classes.tableCellChosen]:
+                              this.state.bingo[idx][0]==1,
+                              [ classes.tableCellWin]:
+                              this.state.win_row==idx || this.state.win_col==0
+                              || (this.state.win_diag==0 && idx==0) || (this.state.win_diag==1 && idx==4),
+                            },)
+                      }>
+                        <Button
+                        disabled={this.state.win}
+                        className={classes.button}
+                        onClick={()=>
                           {
-                            [ classes.tableCellChosen]:
-                            this.state.bingo[idx][0]==1,
-                            [ classes.tableCellWin]:
-                            this.state.win_row==idx || this.state.win_col==0
-                            || (this.state.win_diag==0 && idx==0) || (this.state.win_diag==1 && idx==4),
-                          },)
-                    }>
-                      <Button
-                      disabled={this.state.win}
-                      className={classes.button}
-                      onClick={()=>
-                        {
-                          var newbingo = this.state.bingo;
-                          newbingo[idx][0]=1-newbingo[idx][0];
-                          this.setState({bingo:newbingo});
-                          this.checkWin();
-                        }
-                        }
-                      >
-                        <Typography
+                            var newbingo = this.state.bingo;
+                            newbingo[idx][0]=1-newbingo[idx][0];
+                            this.setState({bingo:newbingo});
+                            this.checkWin();
+                          }
+                          }
+                        >
+                          <Typography
+                            className={
+                              clsx([classes.textField],
+                                  {
+                                    [ classes.textFieldChosen]:
+                                    this.state.bingo[idx][0]==1,
+                                  },)
+                            }>
+                            {row["a"]}
+                          </Typography>
+                        </Button>
+                      </TableCell>
+                      <TableCell padding="checkbox"
+                      className={
+
+                        clsx([classes.tableCell],
+                            {
+                              [ classes.tableCellChosen]:
+                              this.state.bingo[idx][1]==1,
+                              [ classes.tableCellWin]:
+                              this.state.win_row==idx || this.state.win_col==1
+                              || (this.state.win_diag==0 && idx==1) || (this.state.win_diag==1 && idx==3),
+                            },)
+                      }>
+                        <Button
+                        disabled={this.state.win}
+                        className={classes.button}
+                        onClick={()=>
+                          {
+                            var newbingo = this.state.bingo;
+                            newbingo[idx][1]=1-newbingo[idx][1];
+                            this.setState({bingo:newbingo});
+                            this.checkWin();
+                          }
+                          }>
+                          <Typography
                           className={
                             clsx([classes.textField],
                                 {
                                   [ classes.textFieldChosen]:
-                                  this.state.bingo[idx][0]==1,
+                                  this.state.bingo[idx][1]==1,
                                 },)
+                          }
+                          >
+                            {row["b"]}
+                          </Typography>
+                        </Button>
+                      </TableCell>
+                      <TableCell padding="checkbox"
+                      className={
+
+                        clsx([classes.tableCell],
+                            {
+                              [ classes.tableCellChosen]:
+                              this.state.bingo[idx][2]==1,
+                              [ classes.tableCellWin]:
+                              this.state.win_row==idx || this.state.win_col==2
+                              || (this.state.win_diag==0 && idx==2) || (this.state.win_diag==1 && idx==2),
+
+                            },)
+                      }>
+                        <Button
+                        disabled={this.state.win}
+                        className={classes.button}
+                        onClick={()=>
+                          {
+                            var newbingo = this.state.bingo;
+                            newbingo[idx][2]=1-newbingo[idx][2];
+                            this.setState({bingo:newbingo});
+                            this.checkWin();
+                          }
                           }>
-                          {row["a"]}
-                        </Typography>
-                      </Button>
-                    </TableCell>
-                    <TableCell padding="checkbox"
-                    className={
+                          <Typography
+                          className={
+                            clsx([classes.textField],
+                                {
+                                  [ classes.textFieldChosen]:
+                                  this.state.bingo[idx][2]==1,
+                                },)
+                          }
+                          >
 
-                      clsx([classes.tableCell],
+                            {row["c"]}
+                          </Typography>
+                        </Button>
+                      </TableCell>
+                      <TableCell padding="checkbox"
+                      className={
+
+                        clsx([classes.tableCell],
+                            {
+                              [ classes.tableCellChosen]:
+                              this.state.bingo[idx][3]==1,
+                              [ classes.tableCellWin]:
+                              this.state.win_row==idx || this.state.win_col==3
+                              || (this.state.win_diag==0 && idx==3) || (this.state.win_diag==1 && idx==1),
+
+                            },)
+                      }>
+                        <Button
+                        disabled={this.state.win}
+                        className={classes.button}
+                        onClick={()=>
                           {
-                            [ classes.tableCellChosen]:
-                            this.state.bingo[idx][1]==1,
-                            [ classes.tableCellWin]:
-                            this.state.win_row==idx || this.state.win_col==1
-                            || (this.state.win_diag==0 && idx==1) || (this.state.win_diag==1 && idx==3),
-                          },)
-                    }>
-                      <Button
-                      disabled={this.state.win}
-                      className={classes.button}
-                      onClick={()=>
-                        {
-                          var newbingo = this.state.bingo;
-                          newbingo[idx][1]=1-newbingo[idx][1];
-                          this.setState({bingo:newbingo});
-                          this.checkWin();
-                        }
-                        }>
-                        <Typography
-                        className={
-                          clsx([classes.textField],
-                              {
-                                [ classes.textFieldChosen]:
-                                this.state.bingo[idx][1]==1,
-                              },)
-                        }
-                        >
-                          {row["b"]}
-                        </Typography>
-                      </Button>
-                    </TableCell>
-                    <TableCell padding="checkbox"
-                    className={
+                            var newbingo = this.state.bingo;
+                            newbingo[idx][3]=1-newbingo[idx][3];
+                            this.setState({bingo:newbingo});
+                            this.checkWin();
+                          }
+                          }>
+                          <Typography
+                          className={
+                            clsx([classes.textField],
+                                {
+                                  [ classes.textFieldChosen]:
+                                  this.state.bingo[idx][3]==1,
+                                },)
+                          }
+                          >
 
-                      clsx([classes.tableCell],
+                            {row["d"]}
+                          </Typography>
+                        </Button>
+                      </TableCell>
+                      <TableCell padding="checkbox"
+                      className={
+
+                        clsx([classes.tableCell],
+                            {
+                              [ classes.tableCellChosen]:
+                              this.state.bingo[idx][4]==1,
+                              [ classes.tableCellWin]:
+                              this.state.win_row==idx || this.state.win_col==4
+                              || (this.state.win_diag==0 && idx==4) || (this.state.win_diag==1 && idx==0),
+
+
+                            },)
+                      }>
+                        <Button
+                        disabled={this.state.win}
+                        className={classes.button}
+                        onClick={()=>
                           {
-                            [ classes.tableCellChosen]:
-                            this.state.bingo[idx][2]==1,
-                            [ classes.tableCellWin]:
-                            this.state.win_row==idx || this.state.win_col==2
-                            || (this.state.win_diag==0 && idx==2) || (this.state.win_diag==1 && idx==2),
+                            var newbingo = this.state.bingo;
+                            newbingo[idx][4]=1-newbingo[idx][4];
+                            this.setState({bingo:newbingo});
+                            this.checkWin();
+                          }
+                          }>
+                          <Typography
+                          className={
+                            clsx([classes.textField],
+                                {
+                                  [ classes.textFieldChosen]:
+                                  this.state.bingo[idx][4]==1,
+                                },)
+                          }
+                          >
 
-                          },)
-                    }>
-                      <Button
-                      disabled={this.state.win}
-                      className={classes.button}
-                      onClick={()=>
-                        {
-                          var newbingo = this.state.bingo;
-                          newbingo[idx][2]=1-newbingo[idx][2];
-                          this.setState({bingo:newbingo});
-                          this.checkWin();
-                        }
-                        }>
-                        <Typography
-                        className={
-                          clsx([classes.textField],
-                              {
-                                [ classes.textFieldChosen]:
-                                this.state.bingo[idx][2]==1,
-                              },)
-                        }
-                        >
+                            {row["e"]}
+                          </Typography>
+                        </Button>
+                      </TableCell>
+                    </TableRow>
+                    ))
+                  }
 
-                          {row["c"]}
-                        </Typography>
-                      </Button>
-                    </TableCell>
-                    <TableCell padding="checkbox"
-                    className={
+                </TableBody>
+              </Table>
+            </div>
+          }
 
-                      clsx([classes.tableCell],
-                          {
-                            [ classes.tableCellChosen]:
-                            this.state.bingo[idx][3]==1,
-                            [ classes.tableCellWin]:
-                            this.state.win_row==idx || this.state.win_col==3
-                            || (this.state.win_diag==0 && idx==3) || (this.state.win_diag==1 && idx==1),
+          { !this.state.rows_created &&
+            <Typography className={classes.textField}>
+              תמתינו, עובד תפעול בדיוק מכין לכם את הבינגו
+            </Typography>
 
-                          },)
-                    }>
-                      <Button
-                      disabled={this.state.win}
-                      className={classes.button}
-                      onClick={()=>
-                        {
-                          var newbingo = this.state.bingo;
-                          newbingo[idx][3]=1-newbingo[idx][3];
-                          this.setState({bingo:newbingo});
-                          this.checkWin();
-                        }
-                        }>
-                        <Typography
-                        className={
-                          clsx([classes.textField],
-                              {
-                                [ classes.textFieldChosen]:
-                                this.state.bingo[idx][3]==1,
-                              },)
-                        }
-                        >
-
-                          {row["d"]}
-                        </Typography>
-                      </Button>
-                    </TableCell>
-                    <TableCell padding="checkbox"
-                    className={
-
-                      clsx([classes.tableCell],
-                          {
-                            [ classes.tableCellChosen]:
-                            this.state.bingo[idx][4]==1,
-                            [ classes.tableCellWin]:
-                            this.state.win_row==idx || this.state.win_col==4
-                            || (this.state.win_diag==0 && idx==4) || (this.state.win_diag==1 && idx==0),
-
-
-                          },)
-                    }>
-                      <Button
-                      disabled={this.state.win}
-                      className={classes.button}
-                      onClick={()=>
-                        {
-                          var newbingo = this.state.bingo;
-                          newbingo[idx][4]=1-newbingo[idx][4];
-                          this.setState({bingo:newbingo});
-                          this.checkWin();
-                        }
-                        }>
-                        <Typography
-                        className={
-                          clsx([classes.textField],
-                              {
-                                [ classes.textFieldChosen]:
-                                this.state.bingo[idx][4]==1,
-                              },)
-                        }
-                        >
-
-                          {row["e"]}
-                        </Typography>
-                      </Button>
-                    </TableCell>
-                  </TableRow>
-                  ))
-                }
-
-              </TableBody>
-            </Table>
-          </div>
+          }
           </CardContent>
         </Card>
       </div>

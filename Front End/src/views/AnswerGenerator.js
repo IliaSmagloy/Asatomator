@@ -79,7 +79,7 @@ class AnswerGenerator extends React.Component {
     this.state = {
       current_text: "",
       answer_text: "",
-      speaker: "Mousa",
+      speaker: "mosa",
       answer_generated: false,
       button_pushed: false,
     };
@@ -213,28 +213,28 @@ class AnswerGenerator extends React.Component {
                   onChange={this.handleSpeakerChange} row>
                     <div>
                       <div className={classes.image}>
-                      {this.state.speaker=="Mousa" &&
+                      {this.state.speaker=="mosa" &&
                           <img
-                            id="mousa-image"
+                            id="mosa-image"
                             className="d-inline-block align-top mr-1"
                             style={{ maxWidth: "50px" }}
                             src={images[0]}
-                            alt="Mousa"
+                            alt="mosa"
                           />
                       }
-                      { this.state.speaker!="Mousa" &&
+                      { this.state.speaker!="mosa" &&
                           <img
-                            id="mousa-image"
+                            id="mosa-image"
                             className="d-inline-block align-top mr-1"
                             style={{ maxWidth: "50px" }}
                             src={images[1]}
-                            alt="Mousa"
+                            alt="mosa"
                           />
                       }
                     </div>
 
                       <FormControlLabel
-                        value="Mousa"
+                        value="mosa"
                         control={<Radio color="primary" />}
                         label="מוסא"
                         labelPlacement="top"
@@ -242,28 +242,28 @@ class AnswerGenerator extends React.Component {
                     </div>
                     <div>
                       <div className={classes.image}>
-                        {this.state.speaker=="Linoy" &&
+                        {this.state.speaker=="linoy" &&
                             <img
                               id="linoy-image"
                               className="d-inline-block align-top mr-1"
                               style={{ maxWidth: "50px" }}
                               src={images[2]}
-                              alt="Linoy"
+                              alt="linoy"
                             />
                         }
-                        { this.state.speaker!="Linoy" &&
+                        { this.state.speaker!="linoy" &&
                             <img
-                              id="mousa-image"
+                              id="mosa-image"
                               className="d-inline-block align-top mr-1"
                               style={{ maxWidth: "50px" }}
                               src={images[3]}
-                              alt="Linoy"
+                              alt="linoy"
                             />
                         }
                       </div>
 
                       <FormControlLabel
-                        value="Linoy"
+                        value="linoy"
                         control={<Radio color="primary" />}
                         label="לינוי"
                         labelPlacement="top"
@@ -271,27 +271,27 @@ class AnswerGenerator extends React.Component {
                     </div>
                     <div>
                       <div className={classes.image}>
-                        {this.state.speaker=="Ido" &&
+                        {this.state.speaker=="ido" &&
                             <img
                               id="ido-image"
                               className="d-inline-block align-top mr-1"
                               style={{ maxWidth: "50px" }}
                               src={images[4]}
-                              alt="Ido"
+                              alt="ido"
                             />
                         }
-                        { this.state.speaker!="Ido" &&
+                        { this.state.speaker!="ido" &&
                             <img
                               id="ido-image"
                               className="d-inline-block align-top mr-1"
                               style={{ maxWidth: "50px" }}
                               src={images[5]}
-                              alt="Ido"
+                              alt="ido"
                             />
                         }
                       </div>
                       <FormControlLabel
-                        value="Ido"
+                        value="ido"
                         control={<Radio color="primary" />}
                         label="עידו"
                         labelPlacement="top"
@@ -299,27 +299,27 @@ class AnswerGenerator extends React.Component {
                     </div>
                     <div>
                       <div className={classes.image}>
-                        {this.state.speaker=="Costa" &&
+                        {this.state.speaker=="kosta" &&
                             <img
-                              id="costa-image"
+                              id="kosta-image"
                               className="d-inline-block align-top mr-1"
                               style={{ maxWidth: "50px" }}
                               src={images[6]}
-                              alt="Costa"
+                              alt="kosta"
                             />
                         }
-                        { this.state.speaker!="Costa" &&
+                        { this.state.speaker!="kosta" &&
                             <img
-                              id="costa-image"
+                              id="kosta-image"
                               className="d-inline-block align-top mr-1"
                               style={{ maxWidth: "50px" }}
                               src={images[7]}
-                              alt="Costa"
+                              alt="kosta"
                             />
                         }
                       </div>
                       <FormControlLabel
-                        value="Costa"
+                        value="kosta"
                         control={<Radio color="primary" />}
                         icon={<Delete />}
                         label="קוסטה"
@@ -347,47 +347,47 @@ class AnswerGenerator extends React.Component {
 
           <Card className={classes.card}>
             <CardContent>
-              {this.state.speaker=="Mousa" &&
+              {this.state.speaker=="mosa" &&
                 <div className={classes.image}>
                   <img
-                    id="mousa-image"
+                    id="mosa-image"
                     className="d-inline-block align-top mr-1"
                     style={{ maxWidth: "150px" }}
                     src={gifs[0]}
-                    alt="Mousa"
+                    alt="mosa"
                   />
                 </div>
               }
-              {this.state.speaker=="Linoy" &&
+              {this.state.speaker=="linoy" &&
                 <div className={classes.image}>
                   <img
-                    id="mousa-image"
+                    id="mosa-image"
                     className="d-inline-block align-top mr-1"
                     style={{ maxWidth: "150px" }}
                     src={gifs[1]}
-                    alt="Linoy"
+                    alt="linoy"
                   />
                 </div>
               }
-              {this.state.speaker=="Ido" &&
+              {this.state.speaker=="ido" &&
                 <div className={classes.image}>
                   <img
-                    id="mousa-image"
+                    id="mosa-image"
                     className="d-inline-block align-top mr-1"
                     style={{ maxWidth: "150px" }}
                     src={gifs[2]}
-                    alt="Ido"
+                    alt="ido"
                   />
                 </div>
               }
-              {this.state.speaker=="Costa" &&
+              {this.state.speaker=="kosta" &&
                 <div className={classes.image}>
                   <img
-                    id="mousa-image"
+                    id="mosa-image"
                     className="d-inline-block align-top mr-1"
                     style={{ maxWidth: "150px" }}
                     src={gifs[3]}
-                    alt="Costa"
+                    alt="kosta"
                   />
                 </div>
               }
