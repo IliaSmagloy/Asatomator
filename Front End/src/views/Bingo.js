@@ -127,6 +127,7 @@ const styles = theme => ({
       border: '2px solid #000',
       backgroundColor:"White",
       hoverBackGrounColor: "Grey",
+      textAlign: "center",
       borderColor: "Black"
     },
     tableCellChosen:{
@@ -329,7 +330,6 @@ class Bingo extends React.Component{
   componentDidMount()
   {
     var shuff_sentences = shuffle(sentences);
-    console.log(shuff_sentences, sentences);
     var new_rows = [
       createData(
         shuff_sentences[0],

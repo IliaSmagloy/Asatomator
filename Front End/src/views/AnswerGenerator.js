@@ -82,6 +82,7 @@ class AnswerGenerator extends React.Component {
       speaker: "mosa",
       answer_generated: false,
       button_pushed: false,
+      button_again_pushed:false,
     };
 
 
@@ -93,6 +94,7 @@ class AnswerGenerator extends React.Component {
     this.handleAnswerGeneratedChange = this.handleAnswerGeneratedChange.bind(this)
 
     this.submit = this.submit.bind(this)
+    this.again = this.again.bind(this)
 
   }
 
@@ -136,10 +138,10 @@ class AnswerGenerator extends React.Component {
       function(response)
         {
 
-          this.setState({answer_text:response.data});
-          this.setAnswerGenerated(true);
+          self.setState({answer_text:response.data});
+          self.setAnswerGenerated(true);
 
-          this.setState({button_pushed:false});
+          self.setState({button_pushed:false});
         }
     )
     .catch(
@@ -150,6 +152,17 @@ class AnswerGenerator extends React.Component {
         }
     )
 
+  }
+
+  again()
+  {
+    this.setState({
+      button_again_pushed:true,
+      button_pushed:false,
+      current_text:"",
+      answer_text:"",
+      answer_generated:false,
+    });
   }
 
   render()
@@ -196,7 +209,7 @@ class AnswerGenerator extends React.Component {
                     onChange={this.handleTextChange}
                     value={this.state.current_text}
                     className={classes.textField}
-                    placeholder="לדוגמא: שימור ידע, השיער של זיו, או ועדת העומס"
+                    placeholder="לדוגמא: שימור ידע, שיער של זיו, או ועדת העומס"
                     margin="normal"
                     align="right"
                   />
@@ -394,6 +407,15 @@ class AnswerGenerator extends React.Component {
               <Typography className={classes.textField}>
                 {"\""+this.state.answer_text + "\""}
               </Typography>
+              <Button
+              disabled={this.state.button_again_pushed}
+              className={classes.button}
+              variant="contained"
+              color="primary"
+              onClick={this.again}
+              >
+                שאל עוד שאלה!
+              </Button>
             </CardContent>
           </Card>
         }
