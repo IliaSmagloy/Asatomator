@@ -22,7 +22,7 @@ import SpeakerImage from "../components/common/SpeakerImage";
 import YouTube from 'react-youtube';
 import Button from '@material-ui/core/Button';
 import clsx from 'clsx';
-import { lighten, makeStyles } from '@material-ui/core/styles';
+import { lighten, makeStyles, createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -63,20 +63,19 @@ const styles = theme => ({
     textField: {
       marginLeft: theme.spacing(1),
       marginRight: theme.spacing(1),
-      width: "100%",
       margin: "auto",
-      textAlign: 'right',
+      textAlign: 'center',
       alignSelf: 'stretch',
-      padding: "5px 5px"
+      padding: "5px 5px",
+      fontSize: "80%",
     },
 
 
     textFieldChosen: {
       marginLeft: theme.spacing(1),
       marginRight: theme.spacing(1),
-      width: "100%",
       margin: "auto",
-      textAlign: 'right',
+      textAlign: 'center',
       alignSelf: 'stretch',
       padding: "5px 5px",
       textDecorationLine: 'line-through',
@@ -88,6 +87,13 @@ const styles = theme => ({
       color: "LimeGreen",
       textAlign: 'center',
       fontSize: 30,
+      alignSelf: 'stretch',
+    },
+    subheader:
+    {
+      color: "Orange",
+      textAlign: 'center',
+      fontSize: 20,
       alignSelf: 'stretch',
     },
     chooseSpeaker:
@@ -131,8 +137,6 @@ const styles = theme => ({
     },
 
     button:{
-      width:"100%",
-      height:"100%",
       display: "inline-block"
     },
     paper_modal: {
@@ -320,10 +324,16 @@ class Bingo extends React.Component{
           <CardHeader
             classes={{
               title: classes.title,
+              subheader: classes.subheader
             }}
             title={"בינגו בחירות! סמנו מה ששמתם לב אליו והתחרו עם חבריכם!"}
+            subheader="עבור חוויה אופטימלית רצוי לסובב את המסך"
           />
           <CardContent className={classes.cardContent}>
+          <div
+          style={{
+            maxWidth:'100%',
+          }}>
             <Table>
               <TableBody>
                 {rows.map((row, idx) => (
@@ -521,6 +531,7 @@ class Bingo extends React.Component{
 
               </TableBody>
             </Table>
+          </div>
           </CardContent>
         </Card>
       </div>

@@ -21,6 +21,8 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Delete from '@material-ui/icons/Delete';
 import SpeakerImage from "../components/common/SpeakerImage";
 
+const axios = require('axios');
+
 const styles = theme => ({
   card: {
     maxWidth: 500,
@@ -31,7 +33,6 @@ const styles = theme => ({
     width:"100%",
     marginTop: '28px ',
     marginBottom: '28px ',
-
   },
 
   textField: {
@@ -77,8 +78,10 @@ class AnswerGenerator extends React.Component {
 
     this.state = {
       current_text: "",
+      answer_text: "",
       speaker: "Mousa",
       answer_generated: false,
+      button_pushed: false,
     };
 
 
@@ -121,7 +124,32 @@ class AnswerGenerator extends React.Component {
   }
 
   submit(){
-    this.setAnswerGenerated(true);
+    this.setState({button_pushed:true});
+    var get_string = "";
+    get_string+=`http://localhost:8080/genAnswer?`;
+    get_string+="subject="+this.state.current_text;
+    get_string+="&speaker="+this.state.speaker;
+    var encoded_get_string=encodeURI(get_string);
+    var self =this;
+    axios.get(encoded_get_string)
+    .then(
+      function(response)
+        {
+
+          this.setState({answer_text:response.data});
+          this.setAnswerGenerated(true);
+
+          this.setState({button_pushed:false});
+        }
+    )
+    .catch(
+      function(error)
+        {
+          console.log("Error in submitForm in AnswerGenerator", error);
+          self.setState({button_pushed:false});
+        }
+    )
+
   }
 
   render()
@@ -302,6 +330,7 @@ class AnswerGenerator extends React.Component {
                 </Row>
                 <Row>
                   <Button
+                  disabled={this.state.button_pushed}
                   className={classes.button}
                   variant="contained"
                   color="primary"
@@ -363,7 +392,7 @@ class AnswerGenerator extends React.Component {
                 </div>
               }
               <Typography className={classes.textField}>
-                {"\""+this.state.current_text + "\""}
+                {"\""+this.state.answer_text + "\""}
               </Typography>
             </CardContent>
           </Card>
