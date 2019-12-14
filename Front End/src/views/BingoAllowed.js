@@ -116,11 +116,6 @@ const styles = theme => ({
       marginTop: "5%",
       textAlign:"center"
     },
-
-    restrictedModalImage: {
-      width:"100%",
-      textAlign:"center"
-    },
     tableCellWin:{
       border: '2px solid #000',
       backgroundColor:"Gold !important",
@@ -168,10 +163,6 @@ function shuffle(array) {
 
   return tmp;
 }
-function getRandomInt(max) {
-  return Math.floor(Math.random() * Math.floor(max));
-}
-
 
 const sentences= [
   "מוסא אומר שהוא היה רכז רשויות",
@@ -226,7 +217,7 @@ const sentences= [
   "מישהו אומר משהו נישתי שמתייחס רק לפקולטת האם שלו ולא לאף פקולטה אחרת",
 ]
 
-class Bingo extends React.Component{
+class BingoAllowed extends React.Component{
 
   constructor(props){
     super(props);
@@ -245,7 +236,6 @@ class Bingo extends React.Component{
       modal_open:false,
       rows:[],
       rows_created: false,
-      restricted_modal_open:true,
     }
     this.checkWin = this.checkWin.bind(this)
     this.handleDeleteModalClose = this.handleDeleteModalClose.bind(this);
@@ -381,105 +371,9 @@ class Bingo extends React.Component{
     this.setState({rows: new_rows, rows_created: true})
   }
   render(){
-    var gifs =
-    [
-      require("../images/moussa.gif"),
-      require("../images/linoy.gif"),
-      require("../images/ido.gif"),
-      require("../images/costa.gif"),
-    ];
-    var images =
-    [
-      require("../images/comingSoon/1.png"),
-      require("../images/comingSoon/2.png"),
-      require("../images/comingSoon/3.png"),
-      require("../images/comingSoon/4.png"),
-      require("../images/comingSoon/5.png"),
-      require("../images/comingSoon/6.png"),
-      require("../images/comingSoon/7.png"),
-      require("../images/comingSoon/8.png"),
-      require("../images/comingSoon/9.png"),
-      require("../images/comingSoon/10.png"),
-      require("../images/comingSoon/11.png"),
-      require("../images/comingSoon/12.png"),
-      require("../images/comingSoon/13.png"),
-      require("../images/comingSoon/14.png"),
-      require("../images/comingSoon/15.png"),
-    ];
-
     const classes = this.props.classes;
     return(
       <div dir="rtl">
-      <Modal
-          aria-labelledby="transition-modal-title"
-          aria-describedby="transition-modal-description"
-          className={classes.modal}
-          open={this.state.restricted_modal_open}
-          closeAfterTransition
-          BackdropComponent={Backdrop}
-          BackdropProps={{
-            timeout: 500,
-          }}
-        >
-          <Fade in={this.state.restricted_modal_open}>
-            <div className={classes.paper_modal}>
-                <Typography
-                  className={classes.title}>
-                    חסום
-                </Typography>
-              <Row>
-              <div className={classes.restrictedModalImage}>
-                <img
-                  id="mosa-image"
-                  className="d-inline-block align-top mr-1"
-                  style={{ maxWidth: "400px" }}
-                  src={images[getRandomInt(15)]}
-                  alt="kosta"
-                />
-              </div>
-              </Row>
-              <Row>
-
-                <div className={classes.image}>
-                  <img
-                    id="mosa-image"
-                    className="d-inline-block align-top mr-1"
-                    style={{ maxWidth: "150px" }}
-                    src={gifs[0]}
-                    alt="kosta"
-                  />
-                </div>
-                <div className={classes.image}>
-                  <img
-                    id="mosa-image"
-                    className="d-inline-block align-top mr-1"
-                    style={{ maxWidth: "150px" }}
-                    src={gifs[1]}
-                    alt="kosta"
-                  />
-                </div>
-                <div className={classes.image}>
-                  <img
-                    id="mosa-image"
-                    className="d-inline-block align-top mr-1"
-                    style={{ maxWidth: "150px" }}
-                    src={gifs[2]}
-                    alt="kosta"
-                  />
-                </div>
-                <div className={classes.image}>
-                  <img
-                    id="mosa-image"
-                    className="d-inline-block align-top mr-1"
-                    style={{ maxWidth: "150px" }}
-                    src={gifs[3]}
-                    alt="kosta"
-                  />
-                </div>
-              </Row>
-            </div>
-          </Fade>
-        </Modal>
       <Modal
           aria-labelledby="transition-modal-title"
           aria-describedby="transition-modal-description"
@@ -727,9 +621,9 @@ class Bingo extends React.Component{
 
 }
 
-Bingo.propTypes = {
+BingoAllowed.propTypes = {
   classes:PropTypes.object.isRequired,
 };
 
 
-export default withStyles(styles)(Bingo);
+export default withStyles(styles)(BingoAllowed);

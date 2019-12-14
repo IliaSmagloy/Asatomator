@@ -125,6 +125,7 @@ class AnswerGenerator extends React.Component {
   }
 
   submit(event){
+    this.setState({button_again_pushed:false})
     event.preventDefault();
     this.setState({button_pushed:true});
     var get_string = "";
