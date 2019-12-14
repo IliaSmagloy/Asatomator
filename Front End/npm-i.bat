@@ -1,0 +1,3 @@
+npm install -g react react-dom react-scripts react-router react-router-dom axios socket.io-client cookie-parser typescript cors hbs express mysql nodemon socket.io body-parser express-session @angular/cli multer mongoose
+
+npm install --save react react-dom react-scripts react-router react-router-dom axios socket.io-client cookie-parser typescript cors hbs express mysql nodemon socket.io body-parser express-session @angular/cli multer mongoose
