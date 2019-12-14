@@ -24,13 +24,13 @@ server.get("/genAnswer", async (req, res) => {
 	let ansIndex = Math.floor(Math.random() *size);
 	let ans = ansAll[ansIndex];
 	let ansFixed = ans.replace(/@/g, subject);
-	
-	res.send(ansFixed);
+	let ansFixedFinal = ansFixed.trim();
+	res.send(ansFixedFinal);
 })
 /*
 server.get("/getHomeMembers", async (req, res) => {
 	let vac = await todo.getHomeMembers();
-    
+
 	res.send(vac);
 });
 

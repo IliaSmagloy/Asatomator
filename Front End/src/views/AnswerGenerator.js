@@ -112,7 +112,6 @@ class AnswerGenerator extends React.Component {
   }
   handleSpeakerChange(evnt)
   {
-    console.log(evnt.target.value);
     this.setSpeaker(evnt.target.value);
   }
   setAnswerGenerated(value)
@@ -125,7 +124,8 @@ class AnswerGenerator extends React.Component {
     this.setAnswerGenerated(evnt.target.value);
   }
 
-  submit(){
+  submit(event){
+    event.preventDefault();
     this.setState({button_pushed:true});
     var get_string = "";
     get_string+=`http://localhost:8080/genAnswer?`;
@@ -137,7 +137,6 @@ class AnswerGenerator extends React.Component {
     .then(
       function(response)
         {
-
           self.setState({answer_text:response.data});
           self.setAnswerGenerated(true);
 
@@ -220,9 +219,10 @@ class AnswerGenerator extends React.Component {
                   </Typography>
                   <RadioGroup
                   className={classes.speakerChoice}
-                  aria-label="position"
-                  name="position"
+                  aria-label="speaker"
+                  name="speaker"
                   value={this.state.speaker}
+                  defaultValue="mosa"
                   onChange={this.handleSpeakerChange} row>
                     <div>
                       <div className={classes.image}>
