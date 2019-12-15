@@ -56,7 +56,7 @@ MainFooter.propTypes = {
 
 MainFooter.defaultProps = {
   contained: false,
-  copyright: "All Rights Reserved. Bedimos@Asat 2019. Special Thanks to Yarden Stossel",
+  copyright: "All Rights Reserved. Bedimos@Asat 2019. Mundane Thanks to Yarden Stossel",
   menuItems: [
     {
       title: "שאל את המתמודדים שאלה",

@@ -22,7 +22,7 @@ import Delete from '@material-ui/icons/Delete';
 import SpeakerImage from "../components/common/SpeakerImage";
 import YouTube from 'react-youtube';
 import Box from '@material-ui/core/Box';
-
+import HoverableComponent from '../components/HoverableComponent';
 
 const styles = theme => ({
     card: {
@@ -76,6 +76,11 @@ const styles = theme => ({
       textAlign:"center"
     },
 });
+
+
+
+
+
 
 class Frequent extends React.Component{
 
@@ -135,15 +140,20 @@ class Frequent extends React.Component{
               <Box fontWeight="fontWeightBold" textAlign="right" fontSize="30" className={classes.boxQuestion}>
                  האם זיו ואיליה באמת מתמודדים לנשיאות?
               </Box>
-              לא (?)
-              <br />
+              <HoverableComponent text="לא(?)" hidden_text="כן. חפשו את דוכן מהפך תש''פ" />
+
               <Box fontWeight="fontWeightBold" textAlign="right" fontSize="30" className={classes.boxQuestion}>
                 האם איתי ושקד באמת מתמודדים לנשיאות?
               </Box>
               לא (?)
               <br />
               <Box fontWeight="fontWeightBold" textAlign="right" fontSize="30" className={classes.boxQuestion}>
-                הגעתי לפה בטעות איך קונים כרטיסים למסיבה?
+                הגעתי לפה בטעות איך קונים כרטיסים ל
+                <a className="ml-auto" href="https://www.facebook.com/events/355487965315805/" style={{ color: "inherit" } }>
+                  מסיבה
+                </a>
+                ?
+
               </Box>
               זה לא אנחנו דבר עם אס"ט
               <br />
@@ -185,7 +195,12 @@ class Frequent extends React.Component{
               <Box fontWeight="fontWeightBold" textAlign="right" fontSize="30" className={classes.boxQuestion}>
                 רוני?
               </Box>
+              <p>
               זייצב
+              <Box color="white" padding={1} style={{display: 'inline'}}>
+                 לא התפטר הוא פוטר
+              </Box>
+              </p>
               <br />
 
 

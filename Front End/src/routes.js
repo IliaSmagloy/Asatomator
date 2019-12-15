@@ -10,7 +10,7 @@ import Debate from "./views/Debate";
 import Promises from "./views/Promises";
 import Frequent from "./views/Frequent";
 import Bingo from "./views/Bingo";
-import BingoAllowed from "./views/Bingo";
+import BingoAllowed from "./views/BingoAllowed";
 import UserProfileLite from "./views/UserProfileLite";
 import AddNewPost from "./views/AddNewPost";
 import Errors from "./views/Errors";

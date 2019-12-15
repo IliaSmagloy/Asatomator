@@ -258,6 +258,7 @@ class BingoAllowed extends React.Component{
 
   checkWin()
   {
+    var win=false;
     var col = 0;
     var row=0;
     for(col=0; col<5; col++)
@@ -274,6 +275,7 @@ class BingoAllowed extends React.Component{
       {
         this.setState({win_col:col});
         this.setState({win:true});
+        win=true;
         this.setState({modal_open:true});
       }
     }
@@ -291,6 +293,7 @@ class BingoAllowed extends React.Component{
       {
         this.setState({win_row:row});
         this.setState({win:true});
+        win=true;
         this.setState({modal_open:true});
       }
     }
@@ -312,18 +315,49 @@ class BingoAllowed extends React.Component{
     {
       this.setState({win_diag:0});
       this.setState({win:true});
+      win=true;
       this.setState({modal_open:true});
     }
     if(true_other_diag)
     {
       this.setState({win_diag:1});
       this.setState({win:true});
+      win=true;
       this.setState({modal_open:true});
     }
 
-    console.log("CheckWin");
-    console.log(this.state);
+    var cols = ["a", "b", "c", "d", "e"];
+    if(win)
+    {
+      console.log("CheckWin");
+      console.log(this.state);
+      var row;
+      var col;
+      var blank_spaces=[];
 
+      for(row=0; row<5; row++)
+      {
+        for(col=0; col<5; col++)
+        {
+          if (this.state.bingo[row][col]==0)
+            {
+              blank_spaces= blank_spaces.concat([row*5+col]);
+            }
+        }
+      }
+
+      var shuf_blank = shuffle(blank_spaces);
+      var shuffed_first = shuf_blank[0];
+      var sh_row = Math.floor(shuffed_first/5);
+      var sh_col = shuffed_first%5;
+      console.log(shuf_blank, sh_row, sh_col);
+      var tmp_rows = this.state.rows;
+      this.setState({rows:tmp_rows});
+
+      tmp_rows[sh_row][cols[sh_col]] = "רוני זייצב לא התפטר הוא פוטר"
+
+
+    }
 
   }
 

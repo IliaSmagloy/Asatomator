@@ -1,4 +1,5 @@
 import React from "react";
+import history from '../history';
 import {
   Container,
   Row,
@@ -113,6 +114,12 @@ const styles = theme => ({
     },
 
     image: {
+      marginTop: "5%",
+      textAlign:"center"
+    },
+
+    modalGif: {
+      width:"25%",
       marginTop: "5%",
       textAlign:"center"
     },
@@ -249,6 +256,7 @@ class Bingo extends React.Component{
     }
     this.checkWin = this.checkWin.bind(this)
     this.handleDeleteModalClose = this.handleDeleteModalClose.bind(this);
+    this.handleRestrictedModalClose = this.handleRestrictedModalClose.bind(this);
     this.setDeleteModalChange = this.setDeleteModalChange.bind(this)
     this.handleDeleteModalOpen = this.handleDeleteModalOpen.bind(this)
 
@@ -264,6 +272,9 @@ class Bingo extends React.Component{
 
   handleDeleteModalClose = () => {
     this.setDeleteModalChange(false);
+  };
+  handleRestrictedModalClose = () => {
+    history.push("/");
   };
 
   checkWin()
@@ -417,65 +428,81 @@ class Bingo extends React.Component{
           open={this.state.restricted_modal_open}
           closeAfterTransition
           BackdropComponent={Backdrop}
+          onClose={this.handleRestrictedModalClose}
           BackdropProps={{
             timeout: 500,
           }}
         >
           <Fade in={this.state.restricted_modal_open}>
             <div className={classes.paper_modal}>
-                <Typography
-                  className={classes.title}>
-                    חסום
-                </Typography>
               <Row>
+              <Col
+              xs={{size:9}}
+              sm={{size:12}}>
               <div className={classes.restrictedModalImage}>
                 <img
                   id="mosa-image"
                   className="d-inline-block align-top mr-1"
-                  style={{ maxWidth: "400px" }}
+                  style={{ maxWidth: "500px", width:"140%" }}
                   src={images[getRandomInt(15)]}
                   alt="kosta"
                 />
               </div>
+              </Col>
               </Row>
               <Row>
-
-                <div className={classes.image}>
-                  <img
-                    id="mosa-image"
-                    className="d-inline-block align-top mr-1"
-                    style={{ maxWidth: "150px" }}
-                    src={gifs[0]}
-                    alt="kosta"
-                  />
-                </div>
-                <div className={classes.image}>
-                  <img
-                    id="mosa-image"
-                    className="d-inline-block align-top mr-1"
-                    style={{ maxWidth: "150px" }}
-                    src={gifs[1]}
-                    alt="kosta"
-                  />
-                </div>
-                <div className={classes.image}>
-                  <img
-                    id="mosa-image"
-                    className="d-inline-block align-top mr-1"
-                    style={{ maxWidth: "150px" }}
-                    src={gifs[2]}
-                    alt="kosta"
-                  />
-                </div>
-                <div className={classes.image}>
-                  <img
-                    id="mosa-image"
-                    className="d-inline-block align-top mr-1"
-                    style={{ maxWidth: "150px" }}
-                    src={gifs[3]}
-                    alt="kosta"
-                  />
-                </div>
+                <Col
+                xs={3}
+                >
+                  <div className={classes.modalGif}>
+                    <img
+                      id="mosa-image"
+                      className="d-inline-block align-top mr-1"
+                      style={{ maxWidth: "150px", width:"440%" }}
+                      src={gifs[0]}
+                      alt="kosta"
+                    />
+                  </div>
+                </Col>
+                <Col
+                xs={3}
+                >
+                  <div className={classes.modalGif}>
+                    <img
+                      id="mosa-image"
+                      className="d-inline-block align-top mr-1"
+                      style={{ maxWidth: "150px", width:"440%" }}
+                      src={gifs[1]}
+                      alt="kosta"
+                    />
+                  </div>
+                </Col>
+                <Col
+                xs={3}
+                >
+                  <div className={classes.modalGif}>
+                    <img
+                      id="mosa-image"
+                      className="d-inline-block align-top mr-1"
+                      style={{ maxWidth: "150px", width:"440%" }}
+                      src={gifs[2]}
+                      alt="kosta"
+                    />
+                  </div>
+                </Col>
+                <Col
+                xs={3}
+                >
+                  <div className={classes.modalGif}>
+                    <img
+                      id="mosa-image"
+                      className="d-inline-block align-top mr-1"
+                      style={{ maxWidth: "150px", width:"440%" }}
+                      src={gifs[3]}
+                      alt="kosta"
+                    />
+                  </div>
+                </Col>
               </Row>
             </div>
           </Fade>
