@@ -129,7 +129,7 @@ class AnswerGenerator extends React.Component {
     this.setState({button_again_pushed:false})
     event.preventDefault();
     this.setState({button_pushed:true});
-    if(this.state.speaker=="kosta" && this.state.current_text=="האם המחזה צריך להמשך?")
+    if(this.state.speaker=="kosta" && this.state.current_text=="האם המחזה הוא צריך להמשך?")
     {
       var easters =
       [
