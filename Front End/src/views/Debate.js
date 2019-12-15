@@ -553,24 +553,56 @@ class Debate extends React.Component {
               </Box>
 
               <Box fontWeight="fontWeightBold" textAlign="right" className={classes.boxQuestion} style={{display:"inline"}}>
+                <img
+                  id="mosa-image"
+                  className="d-inline-block align-top mr-1"
+                  style={{ maxWidth: "30px" }}
+                  src={images["linoy"]}
+                  alt="mosa"
+                />
+
                   לינוי:
               </Box>
             אני יושבת ראש של ועד חומרים, חברה בסגל סטודנטים, ועד מנהל וועדת הכספים. לפני כן הייתי פרויקטורית אח בוגר ולפני כן מנהלת המק"מ ולפני כן רכזת מילואים. בצבא הייתי קצינת לוגיסטיקה. ניהול די אלטרנטיבי ושונה. אני בעלת זיקה אקדמית, ניסיון חמש שנים בניהול, איזושהי הבנה של מצב כלכלי, שיח בין אישי ברמה גבוהה
             <br/>
             <br/>
             <Box fontWeight="fontWeightBold" textAlign="right" className={classes.boxQuestion} style={{display:"inline"}}>
+                <img
+                  id="mosa-image"
+                  className="d-inline-block align-top mr-1"
+                  style={{ maxWidth: "30px" }}
+                  src={images["ido"]}
+                  alt="mosa"
+                />
+
                 עידו:
             </Box>
             קצין לוחם. כיום סיור ועדה אקדמית, לפני זה יו"ר ועדת בחירות לנציגי סמסטר ובחירות לנשיאות, ממלא מקום חבר ועדת ביקורת. מגוון התפקידים עוזרים ביתרון להבנה כוללת של האגודה ושל ההתנהלויות השוטפות. השגתי את אחוז המצביעים הכי גבוה בבחירות לנציגים. יוזם דברים שהם מעבר, תהליכים שהם בשגרה, יצירת קבצים. אחראי חונכים במכינה, מנהל 30 חונכים. יש בינינו היכרות לא מעמיקה.
             <br/>
             <br/>
             <Box fontWeight="fontWeightBold" textAlign="right" className={classes.boxQuestion} style={{display:"inline"}}>
+              <img
+                id="mosa-image"
+                className="d-inline-block align-top mr-1"
+                style={{ maxWidth: "30px" }}
+                src={images["mossa"]}
+                alt="mosa"
+              />
+
                 מוסא:
             </Box>
             סמסטר 9 כי עברתי מסלול לא כי אני כושל. מצטיין פעמיים פעם נשיא פעם דיקן. רכז רשויות, מנהל במה משנית היה מוצלח מאוד. כמנהל משרד תרבות עבדתי מאוד קשה להציב את המשרד איפה שהוא היום התחייבתי להרים את התוכן של המשרד לסטודנטים, הרצאות עם תוכן, גיוונו את התכנים. תבואו למסיבות יהיה כיף, לוקחים הכול באיזי.
             <br/>
             <br/>
             <Box fontWeight="fontWeightBold" textAlign="right" className={classes.boxQuestion} style={{display:"inline"}}>
+              <img
+                id="mosa-image"
+                className="d-inline-block align-top mr-1"
+                style={{ maxWidth: "30px" }}
+                src={images["costa"]}
+                alt="mosa"
+              />
+
                 קוסטה:
             </Box>
             רכז מכונות מנהל משרד קמפוס. הרמנו מ- 0 את הרמה המקצועית במשרד בעזרת הרכבה של זיכרון ארגוני ונהלי עבודה ברורים, גייסתי הון אנושי. פיתוח חניות בלב הקמפוס, ייצוג האגודה בבית משפט, סיורים במעונות, שיפוץ המון דברים, הפקנו סרטוני וידאו, הוצאנו גורמים לא רצויים מהאגודה
