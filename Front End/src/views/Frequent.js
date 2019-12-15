@@ -51,6 +51,7 @@ const styles = theme => ({
     },
     title:
     {
+      color: "#38b342",
       fontSize: 40,
       textAlign: 'center',
       alignSelf: 'stretch',
@@ -146,6 +147,19 @@ class Frequent extends React.Component{
                 האם איתי ושקד באמת מתמודדים לנשיאות?
               </Box>
               לא (?)
+              <br />
+              <Box fontWeight="fontWeightBold" textAlign="right" fontSize="30" className={classes.boxQuestion}>
+                האם שי ושמואל באמת מתמודדים לנשיאות?
+              </Box>
+              הלוואי.
+              <br />
+              <Box fontWeight="fontWeightBold" textAlign="right" fontSize="30" className={classes.boxQuestion}>
+                האם תומר והנר
+                <HoverableComponent text="גיל" hidden_text="גלוגלוגלול" />
+                ה
+                באמת מתמודדים לנשיאות?
+              </Box>
+              לא - ע"פ בדיקה שלנו, הנרגילה איננה חברה באס"ט ולפיכך אינה יכולה להתמודד לנשיאות האגודה.
               <br />
               <Box fontWeight="fontWeightBold" textAlign="right" fontSize="30" className={classes.boxQuestion}>
                 הגעתי לפה בטעות איך קונים כרטיסים ל

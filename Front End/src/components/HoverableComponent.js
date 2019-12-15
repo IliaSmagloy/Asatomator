@@ -22,6 +22,7 @@ class HoverableComponent extends React.Component {
    render () {
       return (
         <div
+          style={{display:"inline"}}
           onMouseEnter={this.onMouseover.bind(this)}
           onMouseLeave={this.onMouseout.bind(this)}>{this.state.text}</div>
       )

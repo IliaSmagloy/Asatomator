@@ -21,6 +21,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Delete from '@material-ui/icons/Delete';
 import SpeakerImage from "../components/common/SpeakerImage";
 import YouTube from 'react-youtube';
+import Box from '@material-ui/core/Box';
 
 const styles = theme => ({
     card: {
@@ -45,8 +46,13 @@ const styles = theme => ({
     },
     title:
     {
-      textAlign: 'right',
+      color: "#38b342",
+      fontSize: 40,
+      textAlign: 'center',
       alignSelf: 'stretch',
+    },
+    boxQuestion:{
+      fontSize:20,
     },
     chooseSpeaker:
     {
@@ -98,7 +104,9 @@ class Debate extends React.Component {
           />
           <CardContent>
             <Typography className={classes.textField}>
-              תודה רבה לאליאס בשאארת על צילום ועריכה של העימות באיכות נהדרת.
+              <Box fontWeight="fontWeightBold" textAlign="right" fontSize="30" className={classes.boxQuestion}>
+                 תודה רבה לאליאס בשאארת על צילום ועריכה של העימות באיכות נהדרת.
+              </Box>
             </Typography>
             <div className={classes.image}>
               <YouTube

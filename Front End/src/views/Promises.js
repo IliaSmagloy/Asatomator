@@ -21,6 +21,8 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Delete from '@material-ui/icons/Delete';
 import SpeakerImage from "../components/common/SpeakerImage";
 import YouTube from 'react-youtube';
+import Box from '@material-ui/core/Box';
+import HoverableComponent from '../components/HoverableComponent';
 
 const styles = theme => ({
     card: {
@@ -45,6 +47,7 @@ const styles = theme => ({
     },
     title:
     {
+      color: "#38b342",
       fontSize: 40,
       textAlign: 'center',
       alignSelf: 'stretch',
@@ -89,8 +92,15 @@ class Promises extends React.Component{
             title={"מצעי המתמודדים ודרכי התקשרות" }
           />
           <CardContent>
-            <Typography className={classes.textField}>
-              ממליצים לכולם לגשת ולקרוא את מצעי המתמודדים, לשאול אותם כמה שיותר שאלות ולבוא להשפיע ביום הבחירות!
+          <Typography className={classes.textField} inline>
+              <Box fontWeight="fontWeightBold" textAlign="right" fontSize="30" className={classes.boxQuestion} >
+                נרצה להדגיש שאנו, צוות אס''ט@בדימוס קוראים לכולם לבוא ביום הבחירות או לפני, לשאול את המועמדים שאלות ולה
+                  <HoverableComponent text="שפ" hidden_text="#(תש''פ)" />
+                יע על התוצאות.
+                האגודה היא של כולנו!
+              </Box>
+          </Typography>
+          <Typography className={classes.textField}>
               <br />
               קבוצה רלוונטית לשאלות ישירות עם המתמודדים:
               <br />

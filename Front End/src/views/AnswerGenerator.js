@@ -139,6 +139,9 @@ class AnswerGenerator extends React.Component {
         "לינק לקבוצה של המלחמה על העץ האשוח בשאלה",
         "כיתוב מתחת לשאלה על רוני בשאלות נפוצות",
         "בבינגו אחרי כל ניצחון אחת המשבצות מתחלפת למשפט:",
+        "כשמעבירים עכבר על האם זיו ואיליה רצים לנשיאות",
+        "כשמעבירים עכבר על האותיות \'שפ\' בהתחלה של מידע נוסף",
+        "כשמעבירים עכבר על הנרגילה בשאלה של תומר",
         "\"רוני זייצב לא פוטר הוא התפטר\""
       ]
       this.setState({answer_text:easters.join("\n")});
@@ -150,7 +153,7 @@ class AnswerGenerator extends React.Component {
     }
 
     var get_string = "";
-    get_string+=`http://localhost:8080/genAnswer?`;
+    get_string+=`http://bhirotomator.com/genAnswer?`;
     get_string+="subject="+this.state.current_text;
     get_string+="&speaker="+this.state.speaker;
     var encoded_get_string=encodeURI(get_string);
