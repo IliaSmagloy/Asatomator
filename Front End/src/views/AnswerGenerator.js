@@ -83,6 +83,7 @@ class AnswerGenerator extends React.Component {
       answer_generated: false,
       button_pushed: false,
       button_again_pushed:false,
+      easter:false,
     };
 
 
@@ -128,6 +129,26 @@ class AnswerGenerator extends React.Component {
     this.setState({button_again_pushed:false})
     event.preventDefault();
     this.setState({button_pushed:true});
+    if(this.state.speaker=="kosta" && this.state.current_text=="האם המחזה צריך להמשך?")
+    {
+      var easters =
+      [
+        "רשימת איסטראגים נוכחית:",
+        "לינק בשאלה על רכישה",
+        "לינק בשאלה על מסיבה",
+        "לינק לקבוצה של המלחמה על העץ האשוח בשאלה",
+        "כיתוב מתחת לשאלה על רוני בשאלות נפוצות",
+        "בבינגו אחרי כל ניצחון אחת המשבצות מתחלפת למשפט:",
+        "\"רוני זייצב לא פוטר הוא התפטר\""
+      ]
+      this.setState({answer_text:easters.join("\n")});
+      this.setAnswerGenerated(true);
+
+      this.setState({button_pushed:false});
+      this.setState({easter:true});
+      return;
+    }
+
     var get_string = "";
     get_string+=`http://localhost:8080/genAnswer?`;
     get_string+="subject="+this.state.current_text;
@@ -162,6 +183,7 @@ class AnswerGenerator extends React.Component {
       current_text:"",
       answer_text:"",
       answer_generated:false,
+      easter:false,
     });
   }
 
@@ -178,6 +200,7 @@ class AnswerGenerator extends React.Component {
       require("../images/ido.png"),
       require("../images/costa_smile.png"),
       require("../images/costa.png"),
+      require("../images/Freddie.jpg"),
     ];
     var gifs =
     [
@@ -372,6 +395,17 @@ class AnswerGenerator extends React.Component {
                   />
                 </div>
               }
+              {this.state.easter &&
+                <div className={classes.image}>
+                  <img
+                    id="mosa-image"
+                    className="d-inline-block align-top mr-1"
+                    style={{ maxWidth: "150px" }}
+                    src={images[8]}
+                    alt="freddie"
+                  />
+                </div>
+              }
               {this.state.speaker=="linoy" &&
                 <div className={classes.image}>
                   <img
@@ -394,7 +428,7 @@ class AnswerGenerator extends React.Component {
                   />
                 </div>
               }
-              {this.state.speaker=="kosta" &&
+              {(this.state.speaker=="kosta" && !this.state.easter) &&
                 <div className={classes.image}>
                   <img
                     id="mosa-image"
@@ -405,7 +439,7 @@ class AnswerGenerator extends React.Component {
                   />
                 </div>
               }
-              <Typography className={classes.textField}>
+              <Typography  style={{whiteSpace: "pre-line"}} className={classes.textField}>
                 {"\""+this.state.answer_text + "\""}
               </Typography>
               <Button

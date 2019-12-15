@@ -99,12 +99,6 @@ class Promises extends React.Component{
               </a>
               <br />
               <br />
-              <br />
-              <a className="ml-auto" href="https://bit.ly/2PE7pFa">
-              קבוצה רלוונטית למחאה המוצדקת ביותר שאי פעם הייתה בטכניון:
-              </a>
-              <br />
-              <br />
 
               מידע לגבי מוסא וקוסטה:
               <br />
@@ -126,6 +120,26 @@ class Promises extends React.Component{
               <br />
               <a className="ml-auto" href="https://bit.ly/34bQKxX">
                 למצע
+              </a>
+
+              <br/>
+              <br/>
+              יש לכם שאלות לגבי הבחירות?
+              <br/>
+              מייל יו"ר ועדת בחירות:
+              <a className="ml-auto" href="mailto: elections@asat.technion.org.il">
+              elections@asat.technion.org.il
+
+              </a>
+
+
+              <br/>
+              יש לכם שאלות לגבי ההתנהלות התקינה של האגודה או תהליכים באגודה?
+
+              <br/>
+              מייל יו''ר ועדת ביקורת:
+              <a className="ml-auto" href="mailto: insepction@asat.technion.ac.il">
+                insepction@asat.technion.ac.il
               </a>
 
             </Typography>

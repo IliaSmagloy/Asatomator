@@ -160,12 +160,21 @@ class Frequent extends React.Component{
               <Box fontWeight="fontWeightBold" textAlign="right" fontSize="30" className={classes.boxQuestion}>
                 עץ אשוח?
               </Box>
-              לא יודע, אולי. נעדכן.
+              לא יודע, אולי.
+              <a className="ml-auto" href="https://bit.ly/2PE7pFa" style={{ color: "inherit" } }>
+                נעדכן
+              </a>.
+
               <br />
               <Box fontWeight="fontWeightBold" textAlign="right" fontSize="30" className={classes.boxQuestion}>
                 אחי אפשר רפרנס לביולוגיה?
               </Box>
               אני מעדיף שלא, הם ממש בודקים בסמסטר הזה
+              <br />
+              <Box fontWeight="fontWeightBold" textAlign="right" fontSize="30" className={classes.boxQuestion}>
+                היתכן המצב, כי יש עדיין מועדונים?
+              </Box>
+              אם אינכם מדברים על אדו''ט רבתי, כמו שאמר עדן חסון - אין יותר מועדונים.
               <br />
               <Box fontWeight="fontWeightBold" textAlign="right" fontSize="30" className={classes.boxQuestion}>
                 למה קוראים לך בחירוטומטור?
