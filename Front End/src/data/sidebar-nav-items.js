@@ -6,7 +6,7 @@ export default function() {
       htmlAfter: ""
     },
     {
-      title: "בינגו בחירות",
+      title: " בינגו בחירות- יגיע ביום שלישי!",
       to: "/elections-bingo",
       htmlAfter: ""
     },
